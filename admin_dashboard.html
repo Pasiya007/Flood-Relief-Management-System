@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Flood Relief Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-wrapper">
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="admin-dashboard.html" class="navbar-brand">
+    <span class="brand-icon">🌊</span>
+    <span class="brand-text">
+      Flood Relief
+      <span class="brand-sub">Admin Panel</span>
+    </span>
+  </a>
+  <div class="navbar-nav">
+    <a href="#section-stats" class="nav-link">Overview</a>
+    <a href="#section-users" class="nav-link">Users</a>
+    <a href="#section-requests" class="nav-link">Requests</a>
+  </div>
+  <div class="nav-user">
+    <div class="avatar" style="background:#e85d26">A</div>
+    <span style="font-size:0.8rem;opacity:0.85">Admin</span>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main-content">
+
+  <!--Overview -->
+  <section id="section-stats">
+    <div class="page-header" style="margin-bottom:1rem">
+      <div>
+        <div class="page-title">System Overview</div>
+        <div class="page-subtitle">Real-time summary of registered users and relief requests</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-users">—</div>
+        <div class="stat-label">Registered Users</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-value" id="stat-requests">—</div>
+        <div class="stat-label">Total Requests</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-value" id="stat-high">—</div>
+        <div class="stat-label">High Severity</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-value" id="stat-food">—</div>
+        <div class="stat-label">Food Requests</div>
+      </div>
+    </div>
+  </section>
+
+  <!--Users-->
+  <section id="section-users" style="margin-top:2rem">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Registered Users</div>
+        <div class="page-subtitle">Click "View" to see a user's full details and requests</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body" style="padding:0">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>NIC</th>
+                <th>Role</th>
+                <th>Registered</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body">
+              <tr><td colspan="4" style="text-align:center;color:var(--text-muted)">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--All requests+ filters-->
+  <section id="section-requests" style="margin-top:2rem">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Relief Requests Report</div>
+        <div class="page-subtitle">Filter and view summarized data</div>
+      </div>
+    </div>
+
+    <!--Filter bar-->
+    <div class="filter-bar">
+      <div class="form-group">
+        <label class="form-label" for="filter-area">Filter by Area</label>
+        <input type="text" id="filter-area" class="form-control" placeholder="District / DS / GN..." />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="filter-type">Filter by Type</label>
+        <select id="filter-type" class="form-control">
+          <option value="">All Types</option>
+          <option value="Food">Food</option>
+          <option value="Water">Water</option>
+          <option value="Medicine">Medicine</option>
+          <option value="Shelter">Shelter</option>
+        </select>
+      </div>
+      <div class="form-group" style="display:flex;align-items:flex-end">
+        <button id="apply-filter" class="btn btn-primary" style="width:auto">Apply Filter</button>
+      </div>
+    </div>
+
+    <!--Summary boxes-->
+    <div class="stats-grid" style="margin-bottom:1.2rem">
+      <div class="stat-card">
+        <div class="stat-value" id="sum-total">—</div>
+        <div class="stat-label">Filtered Total</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-value" id="sum-high">—</div>
+        <div class="stat-label">High Severity</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-value" id="sum-food">—</div>
+        <div class="stat-label">Food</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="sum-medicine">—</div>
+        <div class="stat-label">Medicine</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-value" id="sum-water">—</div>
+        <div class="stat-label">Water</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-value" id="sum-shelter">—</div>
+        <div class="stat-label">Shelter</div>
+      </div>
+    </div>
+
+    <!--Requests table -->
+    <div class="card">
+      <div class="card-body" style="padding:0">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>NIC</th>
+                <th>Relief Type</th>
+                <th>District</th>
+                <th>DS Division</th>
+                <th>Contact</th>
+                <th>Severity</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="requests-table-body">
+              <tr><td colspan="7" style="text-align:center;color:var(--text-muted)">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--User Detail Modal-->
+<div class="modal-overlay" id="user-detail-modal">
+  <div class="modal" style="max-width:700px">
+    <div class="modal-header">
+      <span class="modal-title">User Profile &amp; Requests</span>
+      <button class="modal-close" onclick="closeModal('user-detail-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="user-detail-content">
+        <p style="color:var(--text-muted)">Loading...</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('user-detail-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!--Toast-->
+<div id="toast-container" class="toast-container"></div>
+
+<script src="js/main.js"></script>
+<script>
+  // Auth guard for admin
+  (async () => {
+    const res = await fetch('php/api.php?action=get_users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})
+    });
+    const data = await res.json();
+    if (!data.success) {
+      if (data.message?.includes('Unauthorized')) window.location.href = 'index.html';
+      if (data.message?.includes('Access denied')) window.location.href = 'user-dashboard.html';
+    }
+  })();
+</script>
+</body>
+</html>
