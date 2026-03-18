@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_signup.css">
 </head>
 <body>
     <div class="container">
         <h2>Sign Up</h2>
         <form id="SignUpForm">
+
+            <label>User Name</label>
+            <input type="text" id="userName" placeholder="Enter User Name">
+            <div class="error" id="nameError">Enter a User Name</div>
 
             <label>NIC Number</label>
             <input type="text" id="nic" placeholder="Enter NIC Number">
@@ -20,11 +24,11 @@
 
             <label>Confirm Password</label>
             <input type="password" id="confirm" placeholder="Re-enter Password">
-            <div class="error" id="confirmError">Password do not match</div>
+            <div class="error" id="confirmError">Passwords do not match</div>
 
             <button type="submit">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="login.php">Sign In</a></p>
+        <p>Already have an account? <a href="main.html">Sign In</a></p>
     </div>
 <script src="script.js"></script>   
 </body>
