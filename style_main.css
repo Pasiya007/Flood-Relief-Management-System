@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Colors */
+:root {
+  --blue-dark: #0b2f5e;
+  --blue-light: #2e78d2;
+  --white: #ffffff;
+  --gray-100: #f5f7fa;
+  --gray-300: #d1d8e0;
+  --gray-500: #6b778c;
+  --danger: #e74c3c;
+}
+
+/* Page Layout */
+body {
+  background: var(--gray-100);
+}
+
+.page-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 2;
+  width: 50%;
+  background: var(--blue-dark);
+  color: var(--white);
+  padding: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.brand-title {
+  font-family: 'Merriweather', serif;
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+
+.brand-sub {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #cbd6ee;
+}
+
+.feature-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.feature-list li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+/* Right Panel */
+.right-panel {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Card */
+.form-card {
+  background: var(--white);
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-title {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: var(--blue-dark);
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--blue-dark);
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-wrap input:focus {
+  border-color: var(--blue-light);
+}
+
+/* Button */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue-light);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background: var(--blue-dark);
+}
+
+/* Signup text */
+.signup-prompt {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.signup-prompt a {
+  color: var(--blue-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Modal (Admin) */
+#adminModal {
+  display: none;
+}
