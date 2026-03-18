@@ -336,7 +336,7 @@ function deleteRequest(reliefId) {
 
 const adminRequestsTableBody = document.getElementById('requests-table-body');
 const adminUsersTableBody = document.getElementById('users-table-body');
-let allRequestsData = []; // Store all requests for filtering
+let allRequestsData = [];
 
 if (adminRequestsTableBody || adminUsersTableBody) {
   loadAdminData();
@@ -395,31 +395,20 @@ function loadAdminData() {
   }
 }
 
-// Render the Requests Table and Update the Filter Summary Boxes
+// Render the Requests Table
 function renderRequestsTable(data) {
   if (!adminRequestsTableBody) return;
   adminRequestsTableBody.innerHTML = '';
 
   if (data.length === 0) {
-      adminRequestsTableBody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted)">No requests found matching this filter.</td></tr>';
-      updateFilteredStats(0, 0, 0, 0, 0, 0);
+      adminRequestsTableBody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted)">No requests found.</td></tr>';
       return;
   }
-
-  let sumHigh = 0, sumFood = 0, sumMedicine = 0, sumWater = 0, sumShelter = 0;
 
   data.forEach(req => {
     const typeClass = req.relief_type.toLowerCase();
     const sevClass = req.security_level.toLowerCase();
 
-    // Tally up stats for the filter summary boxes
-    if (req.security_level === 'High') sumHigh++;
-    if (req.relief_type === 'Food') sumFood++;
-    if (req.relief_type === 'Medicine') sumMedicine++;
-    if (req.relief_type === 'Water') sumWater++;
-    if (req.relief_type === 'Shelter') sumShelter++;
-
-    
     adminRequestsTableBody.innerHTML += `
       <tr>
         <td><strong>${req.NIC}</strong></td>
@@ -434,9 +423,6 @@ function renderRequestsTable(data) {
       </tr>
     `;
   });
-
-  // Update the summary boxes in the Requests section
-  updateFilteredStats(data.length, sumHigh, sumFood, sumMedicine, sumWater, sumShelter);
 }
 
 // Update the Top System Overview Boxes
@@ -459,21 +445,6 @@ function updateOverviewStats(data) {
   if (statFood) statFood.textContent = foodCount;
 }
 
-// Update the Filtered Summary Boxes
-function updateFilteredStats(total, high, food, medicine, water, shelter) {
-  const ids = {
-      'sum-total': total,
-      'sum-high': high,
-      'sum-food': food,
-      'sum-medicine': medicine,
-      'sum-water': water,
-      'sum-shelter': shelter
-  };
-  for (const [id, val] of Object.entries(ids)) {
-      const el = document.getElementById(id);
-      if (el) el.textContent = val;
-  }
-}
 
 
 

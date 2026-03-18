@@ -2,7 +2,7 @@
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
-$db_name = "frm_test"; 
+$db_name = "flood_relief_management_db"; 
 $conn = null;
 
 try {
