@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-/*--CSS variables--*/
+/*CSS variables*/
 :root {
   --primary: #1a4f8a;
   --primary-dark: #0d3566;
@@ -19,14 +19,14 @@
   --radius: 12px;
   --radius-sm: 8px;
 }
-/*--Reset--*/
+/*Reset*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*--Base--*/
+/*Base*/
 body{
     font-family: 'Sora',sans-serif;
     background: var(--bg);
@@ -34,14 +34,14 @@ body{
     min-height: 100vh;
 }
 
-/*--Layout--*/
+/*Layout*/
 .page-wrapper {
     min-height: 100vh;
     display :flex;
     flex-direction: column;
 }
 
-/*--Navbar--*/
+/*Navbar*/
 .navbar{
     background: var(--primary-dark);
     padding: 0 2rem;
@@ -133,7 +133,7 @@ body{
     border-color: rgba(216,48,48,0.6);
     color: #fff;
 }
-/*--main content--*/
+/*Main content*/
 .main-content{
     flex: 1;
     padding: 2rem;
@@ -141,7 +141,7 @@ body{
     width: 100%;
     margin: 0 auto;
 }
-/*--page header--*/
+/*Page header*/
 .page-header{
     display: flex;
     align-items: flex-start;
@@ -161,7 +161,7 @@ body{
     color: var(--text-muted);
     margin-top: 3px;
 }
-/*--buttons--*/
+/*Buttons*/
 .btn{
     display: inline-flex;
     align-items: center;
@@ -176,7 +176,7 @@ body{
     transition: all 0.2s;
     text-decoration: none;
 }
-/*--used in modal footer in "submit request"--*/
+/*used in modal footer in "submit request"*/
 .btn-primary{
     background: var(--primary);
     color: #fff;
@@ -188,7 +188,7 @@ body{
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(26, 79, 138, 0.3);
 }
-/*--used in page header "+New request"--*/
+/*Used in page header "+New request"*/
 .btn-accent{
     background: var(--accent);
     color: #fff;
@@ -197,7 +197,7 @@ body{
     background: #cc4d1f;
     transform: translateY(-1px);
 }
-/*--used in edit request card button--*/
+/*Used in edit request card button*/
 .btn-success{
     background: var(--success);
     color:#fff;
@@ -205,7 +205,7 @@ body{
 .btn-success:hover {
     background: #228a4d;
 }
-/*--used on delete request card button--*/
+/*Used on delete request card button*/
 .btn-danger{
     background: var(--danger);
     color: #fff;
@@ -213,7 +213,7 @@ body{
 .btn-danger:hover{
     background: #b52828;
 }
-/*--used in modal footer "Cancel"--*/
+/*Used in modal footer "Cancel"*/
 .btn-outline{
     background: transparent;
     border:1.5px solid var(--border);
@@ -223,7 +223,7 @@ body{
     border-color: var(--primary);
     color: var(--primary);
 }
-/*--Used on edit/delete action buttons on request cards--*/
+/*Used on edit/delete action buttons on request cards*/
 .btn-sm{
     padding:6px 12px;
     font-size: 0.78rem;
@@ -233,7 +233,7 @@ body{
     cursor: not-allowed;
     transform: none !important;
 }
-/*--forms--*/
+/*Forms*/
 .form-group{
     margin-bottom: 1.2rem;
 }
@@ -273,26 +273,26 @@ textarea.form-control {
     resize: vertical;
     min-height: 80px;
 }
-/*--two column form rows (eg:- type+ severity)--*/
+/*Two column form rows (eg:- type+ severity)*/
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-/*--inline validation error text under each  field--*/
+/*Inline validation error text under each field*/
 .form-error{
     color: var(--danger);
     font-size: 0.78rem;
     margin-top: 4px;
     display: none;
 }
-/*--household section divider inside modal--*/
+/*Household section divider inside modal*/
 .section-divider {
     height: 1px;
     background: var(--border);
     margin: 1.5rem 0;
 }
-/*--request cards (request list on dashboard)--*/
+/*Request cards (request list on dashboard)*/
 .request-list{
     display: flex;
     flex-direction: column;
@@ -315,7 +315,7 @@ textarea.form-control {
     box-shadow: var(--shadow-lg);
 }
 
-/*--severity-based left border color--*/
+/*Severity-based left border color*/
 .request-card.severity-high  { 
     border-left-color: var(--danger); 
 }
@@ -330,7 +330,7 @@ textarea.form-control {
   font-weight: 600;
   margin-bottom: 4px;
 }
-/*--Small metadata row: district,members etc--*/
+/*Small metadata row: district,members etc*/
 .request-meta{
     display:flex;
     flex-wrap: wrap;
@@ -345,14 +345,14 @@ textarea.form-control {
     gap: 4px;
 }
 
-/*--Edit/delete button group on each card--*/
+/*Edit/delete button group on each card*/
 .request-actions {
     display: flex;
     gap: 8px;
     flex-shrink: 0;
 }
 
-/*--Badges (types and severity labels on cards)--*/
+/*Badges (types and severity labels on cards)*/
 .badge{
     display: inline-block;
     padding: 3px 10px;
@@ -362,16 +362,16 @@ textarea.form-control {
     text-transform: uppercase;
     letter-spacing: 0.04rem;
 }
-.badge-food     { background: #fef3c7; color: #92400e; }
-.badge-water    { background: #dbeafe; color: #1e40af; }
-.badge-medicine { background: #d1fae5; color: #065f46; }
-.badge-shelter  { background: #ede9fe; color: #5b21b6; }
-.badge-low      { background: #d1fae5; color: #065f46; }
-.badge-medium   { background: #fef3c7; color: #92400e; }
-.badge-high     { background: #fee2e2; color: #991b1b; }
-.badge-pending  { background: #fef3c7; color: #92400e; }
+.badge-food {background: #fef3c7; color: #92400e; }
+.badge-water {background: #dbeafe; color: #1e40af; }
+.badge-medicine {background: #d1fae5; color: #065f46; }
+.badge-shelter {background: #ede9fe; color: #5b21b6; }
+.badge-low {background: #d1fae5; color: #065f46; }
+.badge-medium {background: #fef3c7; color: #92400e; }
+.badge-high {background: #fee2e2; color: #991b1b; }
+.badge-pending {background: #fef3c7; color: #92400e; }
 
-/*--Empty state (shown when no requests exist)--*/
+/*Empty state (shown when no requests exist)*/
 .empty-state{
     text-align: center;
     padding: 3rem 1rem;
@@ -385,7 +385,7 @@ textarea.form-control {
     font-size: 0.9rem;
 }
 
-/*---Modal (New request/edit request)--*/
+/*Modal (New request/edit request)*/
 .modal-overlay{
     display: none;
     position: fixed;
@@ -396,9 +396,7 @@ textarea.form-control {
     justify-content: center;
     padding: 1rem;
 }
-.modal-overlay :active{
-    display: flex;
-}
+
 .modal{
     background: #fff;
     border-radius: 16px;
@@ -408,10 +406,6 @@ textarea.form-control {
     max-height: 90vh;
     overflow-y: auto;
     animation: modalIn 0.3s ease;
-}
-@keyframes modalIn{
-    from { transform: scale(0.93) translateY(16px); opacity: 0; }
-    to   { transform: scale(1)    translateY(0);    opacity: 1; }
 }
 .modal-header{
     padding: 1.3rem 1.5rem;
@@ -446,7 +440,7 @@ textarea.form-control {
     justify-content: flex-end;
     gap: 10px;
 }
-/*--Toast notifications--*/
+/*Toast notifications*/
 .toast-container{
     position: fixed;
     top: 80px;
@@ -474,15 +468,7 @@ textarea.form-control {
 }
 .toast.warning{
     border-left-color: var(--warning);
-}
-@keyframes toastIn {
-  from { transform: translateX(120%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
-}
-@keyframes toastOut {
-  from { transform: translateX(0);    opacity: 1; }
-  to   { transform: translateX(120%); opacity: 0; }
-}
+}   
 .toast.fade-out{
     animation: toastOut 0.3s ease forwards;
 }
@@ -495,15 +481,7 @@ textarea.form-control {
     font-weight: 500;
     color: var(--text);
 }
-/*--responsive--*/
-@media(max-width: 768px){
-    .main-content {padding: 1rem;}
-    .form-row {grid-template-columns: 1fr;}
-    .page-header{flex-direction: column;}
-    .navbar{padding: 0 1rem;}
-    .navbar-brand .brand-text{font-size: 0.9rem;}
-}
-/*--ADMIN DASHBOARD--*/
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -521,10 +499,10 @@ textarea.form-control {
 }
 .stat-card:hover { transform: translateY(-2px); }
 
-.stat-card.accent   { border-left-color: var(--accent); }
-.stat-card.success  { border-left-color: var(--success); }
-.stat-card.warning  { border-left-color: var(--warning); }
-.stat-card.danger   { border-left-color: var(--danger); }
+.stat-card.accent {border-left-color: var(--accent); }
+.stat-card.success {border-left-color: var(--success); }
+.stat-card.warning {border-left-color: var(--warning); }
+.stat-card.danger {border-left-color: var(--danger); }
 
 .stat-value {
   font-size: 2rem;
@@ -579,23 +557,6 @@ tr:last-child td {
 }
 tr:hover td { 
     background: rgba(26,79,138,0.03);
-}
-.filter-bar {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  padding: 1.2rem 1.5rem;
-  box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: flex-end;
-}
-
-.filter-bar .form-group {
-  margin-bottom: 0;
-  min-width: 160px;
-  flex: 1;
 }
 .detail-grid {
   display: grid;

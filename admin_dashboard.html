@@ -4,14 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard — Flood Relief Management</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_user_admin.css" />
 </head>
 <body class="page-wrapper">
 
 <!-- Navbar -->
 <nav class="navbar">
   <a href="admin-dashboard.html" class="navbar-brand">
-    <span class="brand-icon">🌊</span>
     <span class="brand-text">
       Flood Relief
       <span class="brand-sub">Admin Panel</span>
@@ -91,7 +90,8 @@
     </div>
   </section>
 
-  <!--All requests+ filters-->
+
+
   <section id="section-requests" style="margin-top:2rem">
     <div class="page-header">
       <div>
@@ -100,28 +100,6 @@
       </div>
     </div>
 
-    <!--Filter bar-->
-    <div class="filter-bar">
-      <div class="form-group">
-        <label class="form-label" for="filter-area">Filter by Area</label>
-        <input type="text" id="filter-area" class="form-control" placeholder="District / DS / GN..." />
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="filter-type">Filter by Type</label>
-        <select id="filter-type" class="form-control">
-          <option value="">All Types</option>
-          <option value="Food">Food</option>
-          <option value="Water">Water</option>
-          <option value="Medicine">Medicine</option>
-          <option value="Shelter">Shelter</option>
-        </select>
-      </div>
-      <div class="form-group" style="display:flex;align-items:flex-end">
-        <button id="apply-filter" class="btn btn-primary" style="width:auto">Apply Filter</button>
-      </div>
-    </div>
-
-    <!--Summary boxes-->
     <div class="stats-grid" style="margin-bottom:1.2rem">
       <div class="stat-card">
         <div class="stat-value" id="sum-total">—</div>
@@ -149,7 +127,6 @@
       </div>
     </div>
 
-    <!--Requests table -->
     <div class="card">
       <div class="card-body" style="padding:0">
         <div class="table-wrapper">
@@ -162,7 +139,7 @@
                 <th>DS Division</th>
                 <th>Contact</th>
                 <th>Severity</th>
-                <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="requests-table-body">
@@ -197,21 +174,6 @@
 <!--Toast-->
 <div id="toast-container" class="toast-container"></div>
 
-<script src="js/main.js"></script>
-<script>
-  // Auth guard for admin
-  (async () => {
-    const res = await fetch('php/api.php?action=get_users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({})
-    });
-    const data = await res.json();
-    if (!data.success) {
-      if (data.message?.includes('Unauthorized')) window.location.href = 'index.html';
-      if (data.message?.includes('Access denied')) window.location.href = 'user-dashboard.html';
-    }
-  })();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
